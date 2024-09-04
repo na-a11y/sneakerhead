@@ -1,0 +1,35 @@
+/* src/styles/ImageGrid.css */
+
+.image-grid {
+    display: flex;
+    justify-content: space-between;
+    padding: 76px 80px;
+  }
+  
+  .image-item {
+    text-align: center;
+    overflow: hidden; /* Ensure the image doesn't overflow out of the card */
+  }
+  
+  .image-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+  }
+  
+  .image-item:hover img {
+    transform: scale(1.1); /* Zoom the image only */
+  }
+  
+  .image-item p {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .image-item p:hover {
+    color: #007bff;
+    transform: translateX(10px); /* Separate hover effect for text */
+  }
+  

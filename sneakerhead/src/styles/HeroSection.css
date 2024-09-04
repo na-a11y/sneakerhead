@@ -1,0 +1,42 @@
+/* src/styles/HeroSection.css */
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  height: 60vh; /* Default height for the carousel */
+  background-color: #f0f0f0; /* Light grey background */
+}
+
+.carousel-image {
+  width: 100%;
+  height: 60vh; /* Adjusted height to match the container */
+  object-fit: cover;
+  background-color: #e0e0e0; /* Slightly darker grey background */
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.slick-prev, .slick-next {
+  color: #333333; /* Dark grey navigation arrows */
+  z-index: 2;
+  font-size: 2rem; /* Larger navigation arrows */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
+}
+
+.slick-prev:hover, .slick-next:hover {
+  color: #555555; /* Slightly lighter grey on hover */
+  transform: scale(1.2); /* Slightly larger arrows on hover */
+}
+
+.slick-dots li button:before {
+  color: #333333; /* Dark grey dots for navigation */
+  font-size: 1rem; /* Size of the dots */
+  transition: color 0.3s ease; /* Smooth transition for dot color */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #555555; /* Slightly lighter grey for the active dot */
+}

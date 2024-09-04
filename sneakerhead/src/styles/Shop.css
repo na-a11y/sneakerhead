@@ -1,0 +1,92 @@
+/* Shop.css */
+
+.shop {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.shop-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.shoe-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.shoe-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative; /* Added for positioning wishlist icon */
+}
+
+.shoe-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.shoe-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.shoe-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.shoe-name {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+.shoe-price {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-to-cart {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3;
+}
+
+.wishlist-icon {
+  font-size: 1.5rem;
+  color: #070101;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.wishlist-icon:hover {
+  color: #2f2b2b;
+}

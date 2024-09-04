@@ -1,0 +1,143 @@
+/* PromoAndProducts.css */
+
+/* Main container for promo section and products */
+.promo-products-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* Limit the width for better centering */
+  margin: 0 auto; /* Center the container horizontally */
+  height: auto; /* Flexible height */
+  gap: 20px; /* Space between promo and products sections */
+}
+
+/* Promo section styles */
+.promo-section {
+  flex: 1; /* Take up 50% of the container width */
+  padding: 20px; /* Consistent padding for balanced layout */
+  background-color: #52796f; /* Background color */
+  color: #ffffff; /* Text color */
+  display: flex; /* Flex layout for centering content */
+  flex-direction: column; /* Vertical content arrangement */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  border-radius: 10px; /* Rounded corners */
+  height: auto; /* Flexible height */
+  box-sizing: border-box; /* Include padding in the height */
+}
+
+/* Promo content styles */
+.promo-content {
+  text-align: center; /* Center the text */
+  margin-bottom: 20px; /* Spacing below the content */
+}
+
+.promo-title {
+  background-color: #2f3e46; /* Background color */
+  padding: 8px 12px; /* Padding for the title */
+  border-radius: 5px; /* Rounded corners */
+  display: inline-block; /* Inline-block for better positioning */
+  font-size: 0.9rem; /* Font size */
+  margin-bottom: 10px; /* Spacing below the title */
+}
+
+.promo-heading {
+  font-size: 1.5rem; /* Font size for heading */
+  margin: 0; /* Remove default margin */
+}
+
+.promo-image {
+  width: 100%; /* Full width image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounded corners */
+  margin-top: 15px; /* Spacing above the image */
+  object-fit: cover; /* Cover the container */
+}
+
+/* Products section styles */
+.products-section {
+  flex: 1; /* Take up 50% of the container width */
+  padding: 20px; /* Padding for spacing */
+  display: flex; /* Flex layout */
+  flex-direction: column; /* Vertical arrangement */
+  justify-content: space-between; /* Space out products */
+  height: auto; /* Flexible height */
+  box-sizing: border-box; /* Include padding in the height */
+}
+
+.recommended-title {
+  font-size: 1.2rem; /* Font size */
+  margin-bottom: 15px; /* Spacing below the title */
+  text-align: left; /* Align title to the left */
+}
+
+/* Grid layout for products */
+.products-grid {
+  display: grid; /* CSS Grid for product layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px; /* Space between products */
+}
+
+/* Styles for individual product cards */
+.product-card {
+  background-color: #ffffff; /* Background color */
+  border: 1px solid #e0e0e0; /* Border color */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.product-image-container {
+  width: 100%; /* Full width */
+  padding-top: 100%; /* Aspect ratio for square images */
+  position: relative; /* Positioning context */
+}
+
+.product-image {
+  position: absolute; /* Position within the container */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Cover the container */
+}
+
+.product-info {
+  padding: 10px; /* Padding for spacing */
+  text-align: center; /* Center text */
+}
+
+.product-name {
+  font-size: 0.9rem; /* Font size */
+  font-weight: bold; /* Bold font */
+  color: #333; /* Text color */
+  margin-bottom: 5px; /* Spacing below the name */
+}
+
+.product-price {
+  font-size: 0.8rem; /* Font size */
+  color: #777; /* Text color */
+}
+
+.current-price {
+  color: red; /* Price color */
+  font-weight: bold; /* Bold price */
+  margin-right: 5px; /* Spacing to the right */
+}
+
+.original-price {
+  text-decoration: line-through; /* Strikethrough original price */
+  color: #999; /* Text color */
+}
+
+/* Link styling to ensure the entire card is clickable */
+.product-card a {
+  text-decoration: none; /* Remove default link styles */
+  color: inherit; /* Inherit color for text */
+  display: block; /* Make the entire card clickable */
+  height: 100%; /* Full height link */
+}

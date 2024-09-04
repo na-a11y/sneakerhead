@@ -1,0 +1,92 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Needed to position dots and text */
+}
+
+.card {
+  display: flex;
+  width: 100%;
+  height: 660px; /* Increased height for larger carousel */
+  background-color: #f5f5f5; /* Card background color */
+  position: relative; /* Allows absolute positioning of overlay elements */
+}
+
+.half {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute; /* Allow animation from outside the container */
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+/* Container for dots */
+.dot-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+/* Styling for dots */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc; /* Inactive dot color */
+  cursor: pointer;
+}
+
+/* Active dot styling */
+.dot.active {
+  background-color: #000; /* Active dot color */
+}
+
+/* Centered text styling for the whole card */
+.centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  z-index: 1; /* Ensure text is above images */
+}
+
+/* Animation classes for image transitions */
+.animate-up {
+  transform: translateY(0);
+}
+
+.animate-down {
+  transform: translateY(0);
+}
+
+.out-up {
+  transform: translateY(-100%);
+}
+
+.out-down {
+  transform: translateY(100%);
+}
+
+.in-up {
+  transform: translateY(100%);
+}
+
+.in-down {
+  transform: translateY(-100%);
+}
