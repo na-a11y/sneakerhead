@@ -1,13 +1,32 @@
+// Cart.js
 import React from 'react';
 import '../styles/Cart.css';
 
-const Cart = ({ cart, updateQuantity }) => {
+const Cart = ({ cart, updateQuantity, user }) => {
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
-  const handleCheckout = () => {
-    alert("Your order is placed successfully!");
+  const handleCheckout = async () => {
+    if (user) {
+      try {
+        // Handle checkout process here
+        alert("Your order is placed successfully!");
+      } catch (error) {
+        alert('Checkout failed.');
+      }
+    } else {
+      alert('You need to log in to proceed with checkout.');
+      // Redirect to login or show login modal
+    }
+  };
+
+  const handleQuantityChange = (id, change) => {
+    updateQuantity(id, change);
+    // Remove item if quantity is 0
+    if (cart.find(item => item.id === id && item.quantity <= 0)) {
+      setCart(prevCart => prevCart.filter(item => item.id !== id));
+    }
   };
 
   return (
@@ -22,11 +41,11 @@ const Cart = ({ cart, updateQuantity }) => {
               <img src={item.img} alt={item.name} className="cart-item-img" />
               <div className="cart-item-details">
                 <h2 className="cart-item-name">{item.name}</h2>
-                <p className="cart-item-price">${item.price}</p>
+                <p className="cart-item-price">₹{item.price}</p>
                 <div className="cart-item-quantity">
-                  <button onClick={() => updateQuantity(item.id, -1)} className="quantity-btn">-</button>
+                  <button onClick={() => handleQuantityChange(item.id, -1)} className="quantity-btn">-</button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => updateQuantity(item.id, 1)} className="quantity-btn">+</button>
+                  <button onClick={() => handleQuantityChange(item.id, 1)} className="quantity-btn">+</button>
                 </div>
                 <p className="cart-item-total">Total: ${(item.price * item.quantity).toFixed(2)}</p>
               </div>

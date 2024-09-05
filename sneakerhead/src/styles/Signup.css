@@ -1,92 +1,163 @@
-.signup-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Adjusted to move the form higher */
-    min-height: 100vh;
-    padding-top: 10vh; /* Added padding to position the form higher */
-    background-color: #f0f0f0;
-  }
-  .signup-page h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .signup-page form {
-    max-width: 400px;
-    width: 100%;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-  
-  .signup-page input {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .password-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  .password-container input {
-    padding-right: 40px;
-  }
-  
-  .password-container span {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
-    font-size: 1.25rem;
-    color: #888;
-  }
-  
-  .signup-page button {
-    padding: 0.75rem;
-    background-color:  #007bff;
-    color: white;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 1rem;
-  }
-  
-  .signup-page button:hover {
-    background-color: #0056b3;
-  }
-  
-.toast-success {
-  background-color: #dce7df;
-  color: #0d0000;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  max-width: 500px;
-  margin: auto;
+/* Main container for the signup page */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Aligns the signup box higher */
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 40px 20px; /* Increased top padding to adjust vertical alignment */
 }
 
+/* Signup box styling */
+.signup-box {
+  background-color: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  margin: 10vh auto; /* Centered horizontally and positioned higher vertically */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect to make the signup box pop */
+.signup-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading inside the signup box */
+.signup-box h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Form styling */
+.signup-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Styling for each form group */
+.form-group {
+  text-align: left;
+}
+
+/* Label styling */
+.form-group label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #34495e;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Input field styling */
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+/* Input hover and focus states for improved interaction */
+.form-group input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Password field container */
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Toggle password icon positioning */
+.password-field .toggle-password {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  color: #888;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+/* Toggle password icon hover effect */
+.password-field .toggle-password:hover {
+  color: #2c3e50;
+}
+
+/* Button styling */
+.btn {
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Button active (pressed) effect */
+.btn:active {
+  transform: translateY(0);
+  background-color: #2471a3;
+}
+
+/* Sign-up link styling */
+.signup-box p {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Sign-up link */
+.signup-box p a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Sign-up link hover effect */
+.signup-box p a:hover {
+  text-decoration: underline;
+}
+
+/* Toast container custom styling */
 .Toastify__toast--success {
-  background-color: transparent;
+  background-color: #e3fcec;
+  color: #1e8449;
+  font-weight: bold;
+}
+
+.Toastify__toast--error {
+  background-color: #f8d7da;
+  color: #c0392b;
 }
 
 .Toastify__close-button {
-  color: #010102;
+  color: #333;
 }
 
 .Toastify__progress-bar--default {
-  background: #010102;
+  background-color: #3498db;
 }

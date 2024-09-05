@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Importing heart icons
+import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import HeroSection from '../components/HeroSection';
 import ShoeInfoSection from '../components/ShoeInfoSection';
 import '../styles/Shop.css';
+import { FaHeart, FaRegHeart } from 'react-icons/fa'; // Import heart icons
+import { addToCart, addToWishlist } from '../api';
 
 const shoes = [
   {
@@ -48,7 +49,6 @@ const shoes = [
     price: 2569,
     img: "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1710489207_5387436.jpg?format=webp&w=300&dpr=1.3",
   },
- 
   {
     id: 10,
     name: "Stitched Together: Vol 1",
@@ -80,53 +80,58 @@ const shoes = [
     img: "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1712145476_1098316.jpg?format=webp&w=480&dpr=1.3",
   }
 ];
-const Shop = ({ addToCart, addToWishlist }) => {
-  const [wishlist, setWishlist] = useState([]);
-  const navigate = useNavigate();
+const Shop = ({ addToCart, addToWishlist, user, wishlist }) => {
+  const navigate = useNavigate(); // Initialize useNavigate
 
-  const handleAddToCart = (shoe) => {
-    addToCart(shoe);
-    alert(`${shoe.name} has been added to your cart!`);
-    navigate('/cart');
-  };
-
-  const handleAddToWishlist = (shoe) => {
-    if (wishlist.find(item => item.id === shoe.id)) {
-      alert(`${shoe.name} is already in your wishlist!`);
-    } else {
-      addToWishlist(shoe);
-      setWishlist([...wishlist, shoe]);
-      alert(`${shoe.name} has been added to your wishlist!`);
+  const handleAddToCart = async (product) => {
+    if (!user) {
+      navigate('/login'); // Redirect to login if not logged in
+      return;
+    }
+    try {
+      await addToCart(product);
+      alert('Product added to cart!');
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      alert('Error adding to cart. Please try again.');
     }
   };
+
+  const handleAddToWishlist = async (product) => {
+    if (!user) {
+      navigate('/login'); // Redirect to login if not logged in
+      return;
+    }
+    try {
+      await addToWishlist(product);
+      alert('Product added to wishlist!');
+    } catch (error) {
+      console.error('Error adding to wishlist:', error);
+      alert('Error adding to wishlist. Please try again.');
+    }
+  };
+
   return (
     <>
       <HeroSection />
-      <div className="shop">
-        <h1 className="shop-title">Our Shoe Collection</h1>
-        <div className="shoe-list">
-          {shoes.map((shoe) => (
-            <div key={shoe.id} className="shoe-card">
-              <img src={shoe.img} alt={shoe.name} className="shoe-img" />
-              <div className="shoe-info">
-                <h2 className="shoe-name">{shoe.name}</h2>
-                <p className="shoe-price">₹{shoe.price}</p>
-                <div className="button-group">
-                  <button className="add-to-cart" onClick={() => handleAddToCart(shoe)}>Add to Cart</button>
-                  <span 
-                    className="wishlist-icon" 
-                    onClick={() => handleAddToWishlist(shoe)}
-                  >
-                    {wishlist.find(item => item.id === shoe.id) ? <FaHeart /> : <FaRegHeart />}
-                  </span>
-                </div>
+      <div className="shop-container">
+        {shoes.map(product => (
+          <div key={product.id} className="product-card">
+            <img src={product.img} alt={product.name} className="product-img" />
+            <h3 className="product-name">{product.name}</h3>
+            <p className="product-price">₹{product.price}</p>
+            <div className="product-actions">
+              <button className="add-to-cart" onClick={() => handleAddToCart(product)}>Add to Cart</button>
+              <div className="wishlist-icon" onClick={() => handleAddToWishlist(product)}>
+                {wishlist.some(item => item.id === product.id) ? <FaHeart /> : <FaRegHeart />}
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
       <ShoeInfoSection />
     </>
   );
 };
+
 export default Shop;
